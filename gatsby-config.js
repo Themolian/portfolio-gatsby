@@ -56,5 +56,24 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: process.env.WPGRAPHQL_URL,
+      },
+      schema: {
+        typePrefix: `Wp`,
+      },
+      develop: {
+        hardCacheMediaFiles: true,
+      },
+      // type: {
+      //   Post: {
+      //     limit: {
+      //       process.env.NODE_ENV === `development`
+      //     }
+      //   }
+      // }
+    },
   ],
 };
