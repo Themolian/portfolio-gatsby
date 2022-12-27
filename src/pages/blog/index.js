@@ -1,17 +1,23 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../../components/Layout";
+import Hero from "../../components/global/Hero";
 import Seo from "../../components/seo";
 
 const BlogPage = ({ data }) => {
+  const heroTitle = data.wpPage.heroSettings.title;
+  const heroSubtitle = data.wpPage.heroSettings.subtitle;
+  const heroImage = data.wpPage.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
   return (
-    <Layout pageTitle="This is the title of the blog page">
-      {data.allContentfulBlogPost.nodes.map((node) => (
+    <Layout>
+      <Hero title={heroTitle} subtitle={heroSubtitle} image={heroImage} />
+      <h1>{data.wpPage.isPostsPage}</h1>
+      {data.allWpPost.nodes.map((node) => (
         <article key={node.id}>
           <Link to={node.slug}>
             <h2>{node.title}</h2>
           </Link>
-          <p>Posted: {node.createdAt}</p>
+          <p>Posted: {node.date}</p>
         </article>
       ))}
     </Layout>
@@ -20,15 +26,29 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulBlogPost {
+    wpPage(isPostsPage: {eq: true}) {
+      heroSettings {
+        title
+        subtitle
+      }
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
+          }
+        }
+      }
+    }
+    allWpPost {
       nodes {
         id
         slug
         title
-        createdAt(formatString: "MMMM D, YYYY")
-        bodyRichText {
-          raw
-        }
+        excerpt
+        date(formatString: "MMMM D, YYYY")
+        content
       }
     }
   }

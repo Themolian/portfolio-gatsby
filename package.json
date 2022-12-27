@@ -22,7 +22,6 @@
     "gatsby-plugin-mdx": "^5.3.1",
     "gatsby-plugin-sass": "^6.3.1",
     "gatsby-plugin-sharp": "^5.3.2",
-    "gatsby-source-contentful": "^8.3.1",
     "gatsby-source-filesystem": "^5.3.1",
     "gatsby-source-wordpress": "^7.3.2",
     "gatsby-transformer-sharp": "^5.3.1",
