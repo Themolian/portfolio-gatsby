@@ -3,8 +3,16 @@ import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Header = (props) => {
+    const isHomepage = props.isHomepage;
+    const homepageClass = function() {
+        if(isHomepage) {
+            return ' header--homepage';
+        } else {
+            return '';
+        }
+    }
     return (
-        <header className="header">
+        <header className={`header${homepageClass()}`}>
             <div className="header-inner">
                 <div className="header-logo">
                     <Link to="/">

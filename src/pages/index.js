@@ -22,7 +22,7 @@ const HomePage = ({ data }) => {
     <div className="site-wrap">
       <div className="top-content">
         <GatsbyImage class="hero-image" image={heroImage} role="presentation" />
-        <Header logo={logo} />
+        <Header logo={logo} isHomepage="true" />
         <Hero title={heroTitle} button={heroButton} />
       </div>
       <Layout>
