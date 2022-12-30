@@ -52,7 +52,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.WPGRAPHQL_URL,
+        url: "https://cms.jamiecurran.tech/graphql",
       },
       schema: {
         typePrefix: `Wp`,
