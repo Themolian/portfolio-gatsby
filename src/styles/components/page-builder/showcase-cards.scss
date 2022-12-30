@@ -1,9 +1,10 @@
 .showcase-cards {
-  padding: 0 20px;
+  padding: 0 100vw;
+  margin: 0 -100vw;
   background-color: $grey;
 
   &__inner {
-    padding: 50px 0;
+    padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
     h2 {
@@ -15,10 +16,11 @@
     padding: 50px 0 0;
     display: flex;
     flex-direction: column;
-    margin: 0 -20px -20px;
+    margin: 0 0 -20px;
     @media (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
+      margin: 0 -20px -20px;
     }
   }
 }
@@ -27,8 +29,7 @@
   padding: 20px;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  margin: 0 20px 40px;
-  width: calc(33.333333% - 40px);
+  margin: 0 0 20px;
   text-align: center;
   background-color: white;
 
@@ -55,5 +56,9 @@
     p {
       margin-top: 10px;
     }
+  }
+  @media (min-width: 768px) {
+    margin: 0 20px 40px;
+    width: calc(33.333333% - 40px);
   }
 }

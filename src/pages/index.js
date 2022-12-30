@@ -9,6 +9,7 @@ import "../styles/styles.scss";
 import Header from "../components/global/Header";
 import Hero from "../components/homepage/Hero";
 import PageBuilder from "../components/page-builder/PageBuilder";
+import Footer from "../components/global/Footer";
 
 const HomePage = ({ data }) => {
   const logo =
@@ -28,6 +29,7 @@ const HomePage = ({ data }) => {
       <Layout>
         <PageBuilder dataSource={pageBuilder} />
       </Layout>
+      <Footer />
     </div>
   );
 };
@@ -73,7 +75,7 @@ export const query = graphql`
               title
               localFile {
                 childImageSharp {
-                  gatsbyImageData(layout: CONSTRAINED, width: 500)
+                  gatsbyImageData(layout: CONSTRAINED, width: 1000)
                 }
               }
             }

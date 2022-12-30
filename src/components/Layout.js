@@ -1,12 +1,14 @@
 import * as React from "react";
 
 const Layout = ({ data, pageTitle, children }) => {
-    return (
-        <main>
-            {pageTitle ? <h1>{pageTitle}</h1> : null}
-            {children}
-        </main>
-    )
-}
+  return (
+    <main className="main">
+      <div className="main-inner">
+        {pageTitle ? <h1>{pageTitle}</h1> : null}
+        {children}
+      </div>
+    </main>
+  );
+};
 
-export default Layout
+export default Layout;
