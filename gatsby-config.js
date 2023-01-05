@@ -7,7 +7,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Jamie Curran - Portfolio`,
+    title: `Jamie Curran - Leicestershire Based Front End Developer`,
+    description: `Hi! I'm Jamie - I've been active in the Tech Community since 2016 and I'm a massive nerd besides!`,
+    twitterUsername: `@themolian`,
+    image: `/src/images/logo.png`,
     siteUrl: `https://www.jamiecurran.tech`,
   },
   plugins: [
@@ -16,6 +19,12 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/logo.png",
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
