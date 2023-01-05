@@ -64,8 +64,8 @@ module.exports = {
       },
       schema: {
         typePrefix: `Wp`,
-        requestConcurrency: 2,
-        previewRequestConcurrency: 2,
+        requestConcurrency: 0.5,
+        previewRequestConcurrency: 0.5,
       },
       develop: {
         hardCacheMediaFiles: true,
