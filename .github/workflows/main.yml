@@ -45,7 +45,7 @@ jobs:
           server: ftp.jamiecurran.tech
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          server-dir: gatsby_html
+          server-dir: gatsby_html/
             
     
   
