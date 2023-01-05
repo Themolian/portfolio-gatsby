@@ -43,7 +43,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
         with:
           server: ftp.jamiecurran.tech
-          username: gatsbypipeline@jamiecurran.tech
+          username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
             
     
