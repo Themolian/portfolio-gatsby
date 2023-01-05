@@ -40,13 +40,14 @@ jobs:
           name: public
           path: public
       - name: Sync files to hosting
-        uses: SamKirkland/FTP-Deploy-Action@4.3.1
+        uses: airvzxf/ftp-deployment-action@latest
         with:
           server: ftp.jamiecurran.tech
-          username: ${{ secrets.ftp_username }}
-          password: ${{ secrets.ftp_password }}
-          local-dir: ./public/
-          server-dir: gatsby_html/
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: "./public"
+          remote_dir: "/gatsby_html"
+          delete: "false"
             
     
   
