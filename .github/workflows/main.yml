@@ -1,0 +1,43 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Dependencies
+        run: npm run build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: public
+          path: public
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - name: Download artifact
+        uses: actions/download-artifact@master
+        with:
+          name: public
+          path: public
+      - name: Sync files to hosting
+        uses: SamKirkland/FTP-Deploy-Action@4.3.1
+        with:
+          server: ftp.jamiecurran.tech
+          username: gatsbypipeline@jamiecurran.tech
+          password: ${{ secrets.ftp_password }}
+            
+    
+  
