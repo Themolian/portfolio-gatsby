@@ -1,0 +1,53 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.6.0
+        with:
+          # Set always-auth in npmrc.
+          always-auth: false
+          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+          node-version: 18.12.1
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Dependencies
+        run: npm run build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: public
+          path: public
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - name: Download artifact
+        uses: actions/download-artifact@master
+        with:
+          name: public
+          path: public
+      - name: Sync files to hosting
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ftp.jamiecurran.tech
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: "./public"
+          remote_dir: "/gatsby_html"
+          delete: "false"
+            
+    
+  
