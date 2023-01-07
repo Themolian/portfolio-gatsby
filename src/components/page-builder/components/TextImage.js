@@ -23,21 +23,4 @@ const TextImage = (props) => {
   );
 };
 
-const currentAge = function (dateString) {
-  let today = new Date();
-  let birthDate = new Date(dateString);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  let m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-  return age;
-};
-
-if (document.querySelector("#age")) {
-  document.querySelector("#age").innerHTML = currentAge("1995-03-29");
-} else {
-  document.querySelector("#age").innerHTML = "27";
-}
-
 export default TextImage;
