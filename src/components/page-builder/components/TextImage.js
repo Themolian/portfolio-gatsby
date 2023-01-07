@@ -36,6 +36,8 @@ const currentAge = function (dateString) {
 
 if (document.querySelector("#age")) {
   document.querySelector("#age").innerHTML = currentAge("1995-03-29");
+} else {
+  document.querySelector("#age").innerHTML = "27";
 }
 
 export default TextImage;
