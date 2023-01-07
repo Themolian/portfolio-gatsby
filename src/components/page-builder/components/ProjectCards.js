@@ -16,19 +16,20 @@ const ProjectCards = (props) => {
                   alt={project.projects.companyLogo.altText}
                 />
               </div>
+              <div className="project-card__image">
+                <GatsbyImage
+                  image={
+                    project.featuredImage.node.localFile.childImageSharp
+                      .gatsbyImageData
+                  }
+                />
+              </div>
               <div className="project-card__client">
                 <img
                   src={project.projects.clientLogo.sourceUrl}
                   alt={project.projects.clientLogo.altText}
                 />
               </div>
-              <GatsbyImage
-                image={
-                  project.featuredImage.node.localFile.childImageSharp
-                    .gatsbyImageData
-                }
-                className="project-card__image"
-              />
               <div className="project-card__text">
                 <h3>{project.projects.title}</h3>
                 <div
