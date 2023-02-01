@@ -12,23 +12,31 @@ const BlogPage = ({ data }) => {
     data.allWpMediaItem.nodes[0].localFile.childImageSharp.gatsbyImageData;
   const heroTitle = data.wpPage.heroSettings.title;
   const heroSubtitle = data.wpPage.heroSettings.subtitle;
-  const heroImage = data.wpPage.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
+  const heroImage =
+    data.wpPage.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
   return (
     <div className="site-wrap">
       <Header logo={logo} />
       <Hero title={heroTitle} subtitle={heroSubtitle} image={heroImage} />
       <Layout>
         <div className="blog-posts">
-        {data.allWpPost.nodes.map((node) => (
-          <article className="blog-post" key={node.id}>
-            <Link to={node.slug}>
-              <h2>{node.title}</h2>
-            </Link>
-            <p className="date">{node.date}</p>
-            <div className="excerpt" dangerouslySetInnerHTML={{__html: node.excerpt}} />
-            <button><Link className="btn" to={node.slug}>Read More</Link></button>
-          </article>
-        ))}
+          {data.allWpPost.nodes.map((node) => (
+            <article className="blog-post" key={node.id}>
+              <Link to={node.slug}>
+                <h2>{node.title}</h2>
+              </Link>
+              <p className="date">{node.date}</p>
+              <div
+                className="excerpt"
+                dangerouslySetInnerHTML={{ __html: node.excerpt }}
+              />
+              <button>
+                <Link className="btn" to={node.slug}>
+                  Read More
+                </Link>
+              </button>
+            </article>
+          ))}
         </div>
       </Layout>
       <Footer />
@@ -47,7 +55,7 @@ export const query = graphql`
         }
       }
     }
-    wpPage(isPostsPage: {eq: true}) {
+    wpPage(isPostsPage: { eq: true }) {
       isPostsPage
       heroSettings {
         title
@@ -63,7 +71,7 @@ export const query = graphql`
         }
       }
     }
-    allWpPost {
+    allWpPost(sort: { date: DESC }) {
       nodes {
         id
         slug
