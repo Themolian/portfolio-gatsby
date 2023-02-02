@@ -29,6 +29,31 @@
     h3 {
       margin-top: 25px;
     }
+    .wp-block-image {
+      position: relative;
+      border: 3px solid black;
+      &:not(:first-child) {
+        margin-top: 25px;
+      }
+      .gatsby-image-wrapper {
+        width: 100%;
+      }
+      .wp-element-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        padding: 15px;
+        box-sizing: border-box;
+        color: black;
+        font-family: $heading-font;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-top: 3px solid black;
+        border-right: 3px solid black;
+      }
+    }
     blockquote {
       position: relative;
       margin: 15px 0;
