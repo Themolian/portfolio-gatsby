@@ -26,6 +26,52 @@
         color: black;
       }
     }
+    h3 {
+      margin-top: 25px;
+    }
+    blockquote {
+      position: relative;
+      margin: 15px 0;
+      padding: 15px 0 15px 25px;
+      font-family: $heading-font;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 1.2rem;
+      &:before {
+        content: "";
+        display: block;
+        width: 3px;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+    ul {
+      padding: 15px 0;
+      li {
+        position: relative;
+        padding-left: 25px;
+        margin-top: 15px;
+        line-height: 1.4rem;
+        a {
+          font-family: $heading-font;
+          font-weight: bold;
+          color: black;
+        }
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 5px;
+          left: 0;
+          width: 8px;
+          height: 8px;
+          border: 3px solid black;
+        }
+      }
+    }
   }
   button {
     margin-top: 35px;
