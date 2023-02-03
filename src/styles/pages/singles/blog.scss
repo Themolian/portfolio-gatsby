@@ -26,8 +26,18 @@
         color: black;
       }
     }
+    h2,
     h3 {
       margin-top: 25px;
+    }
+    pre {
+      background-color: black;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      font-family: Monospace;
+      font-weight: bold;
+      line-height: 1.4rem;
     }
     .wp-block-image {
       position: relative;
