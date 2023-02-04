@@ -18,17 +18,14 @@
     }
   }
   &__body {
-    p {
-      margin-top: 25px;
-
-      a {
-        font-weight: bold;
-        color: black;
-      }
+    a {
+      font-weight: bold;
+      color: black;
     }
     h2,
     h3,
-    pre {
+    pre,
+    p {
       margin-top: 25px;
     }
     pre {
