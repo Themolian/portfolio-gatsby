@@ -27,7 +27,8 @@
       }
     }
     h2,
-    h3 {
+    h3,
+    pre {
       margin-top: 25px;
     }
     pre {
@@ -38,6 +39,7 @@
       font-family: Monospace;
       font-weight: bold;
       line-height: 1.4rem;
+      overflow: auto;
     }
     .wp-block-image {
       position: relative;
